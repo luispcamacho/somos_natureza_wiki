@@ -1,20 +1,15 @@
 {
   "sidebar": [
     {
-      "section": "Introduction",
+      "section": "Introdução",
       "topics": [
         {
-          "title": "Getting started",
-          "slug": "getting-started"
-        }
-      ]
-    },
-    {
-      "section": "Setup",
-      "topics": [
+          "title": "Enquadramento",
+          "slug": "enquadramento"
+        },
         {
-          "title": "Theme configuration",
-          "slug": "theme-configuration"
+          "title": "FAQ",
+          "slug": "faq"
         }
       ]
     }

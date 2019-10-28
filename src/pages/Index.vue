@@ -1,13 +1,13 @@
 <template>
   <Layout :sidebar="false">
     <div class="content">
-      <h1>Jamdocs - the ultimate static generated documentation theme for the JAM-stack</h1>
+      <h1>Movimento pelos Direitos da Natureza</h1>
       <nav>
         <article>
           <h2>
-            <g-link to="/getting-started">
+            <g-link to="/enquadramento">
               <play-icon />
-              Introduction
+              Enquadramento
             </g-link>
           </h2>
         </article>
@@ -28,7 +28,6 @@
           </h2>
         </article>
       </nav>
-      <GitLink class="git" size="large" />
     </div>
   </Layout>
 </template>

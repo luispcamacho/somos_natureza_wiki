@@ -9,7 +9,7 @@
                 <g-link class="topic" :to="'/' + item.slug">{{item.title}}</g-link>
                 <ul v-if="checkAnchors(node.slug, item.slug)" v-for="{ node } in $static.docs.edges" :key="node.id">
                   <li v-for="heading in node.headings" :key="heading.value">
-                    <a class="sub-topic" :href="'/' + item.slug + heading.anchor">{{heading.value}}</a>
+                    <a class="sub-topic" :href="'/' + item.slug + '#' + encodeURIComponent(heading.anchor.substr(1))" v-on:click="changePage('/' + item.slug + '#' + encodeURIComponent(heading.anchor.substr(1)))" >{{heading.value}}</a>
                   </li>
                 </ul>
               </li>
@@ -62,6 +62,14 @@ export default {
     }
   },
   methods: {
+    changePage(page) {
+      console.log('coisas')
+      // window.location.hostname = window.location.hostname;
+      // setTimeout(() => {
+      //   console.log('coisas')
+      //   window.location.hostname = window.location.hostname;
+      // }, 100);
+    },
     checkAnchors(slug, item) {
       if (slug == item) {
         return true
@@ -79,7 +87,7 @@ export default {
       let fromTop = window.scrollY
 
       mainNavLinks.forEach(link => {
-        let section = document.querySelector(link.hash)
+        let section = document.querySelector(decodeURIComponent(link.hash))
         let allCurrent = document.querySelectorAll('.current'), i
 
         if (section.offsetTop <= fromTop) {
