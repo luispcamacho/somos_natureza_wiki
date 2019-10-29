@@ -36,8 +36,6 @@ export default {
 
       l.id = removeWeirdChars(id); 
     })
-
-    console.log('PASSSA AQUII!!!?')
   }
 }
 
@@ -53,7 +51,6 @@ function removeWeirdChars(str){
     {weird: 'ç', notWeird: 'c'}
   ]
   substitutions.forEach(sb => str = str.split(sb.weird).join(sb.notWeird))
-  console.log(str);
   return str;
 }
 </script>

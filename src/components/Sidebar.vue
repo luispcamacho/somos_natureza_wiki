@@ -119,7 +119,6 @@ function removeWeirdChars(str){
     {weird: 'ç', notWeird: 'c'}
   ]
   substitutions.forEach(sb => str = str.split(sb.weird).join(sb.notWeird))
-  console.log(str);
   return str;
 }
 </script>
