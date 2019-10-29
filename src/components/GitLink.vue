@@ -1,8 +1,8 @@
 <template>
-  <a href="https://github.com/samuelhorn/jamdocs" :class="size" title="Git-repository" aria-label="Jamdocs on Github">
+  <!-- <a href="https://github.com/luispcamacho/somos_natureza_wiki" :class="size" title="Git-repository" aria-label="Somos Natureza on Github">
     <github-icon class="icon" />
     {{text}}
-  </a>
+  </a> -->
 </template>
 
 <script>

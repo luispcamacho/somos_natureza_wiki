@@ -16,8 +16,8 @@ function addStyleResource (rule) {
 }
 
 module.exports = {
-  siteName: 'Jamdocs',
-  siteUrl: 'https://jamdocs.netlify.com',
+  siteName: 'Somos Natureza',
+  siteUrl: 'https://wiki.somosnatureza.pt',
   templates: {
     Doc: '/:slug',
   },

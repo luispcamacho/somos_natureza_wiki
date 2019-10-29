@@ -9,7 +9,7 @@
                 <g-link class="topic" :to="'/' + item.slug">{{item.title}}</g-link>
                 <ul v-if="checkAnchors(node.slug, item.slug)" v-for="{ node } in $static.docs.edges" :key="node.id">
                   <li v-for="heading in node.headings" :key="heading.value">
-                    <a class="sub-topic" :href="'/' + item.slug + '#' + encodeURIComponent(heading.anchor.substr(1))" v-on:click="changePage('/' + item.slug + '#' + encodeURIComponent(heading.anchor.substr(1)))" >{{heading.value}}</a>
+                    <a class="sub-topic" :href="'/' + item.slug + '#' + encodeURIComponent(heading.anchor.substr(1))" >{{heading.value}}</a>
                   </li>
                 </ul>
               </li>
@@ -62,14 +62,6 @@ export default {
     }
   },
   methods: {
-    changePage(page) {
-      console.log('coisas')
-      // window.location.hostname = window.location.hostname;
-      // setTimeout(() => {
-      //   console.log('coisas')
-      //   window.location.hostname = window.location.hostname;
-      // }, 100);
-    },
     checkAnchors(slug, item) {
       if (slug == item) {
         return true
@@ -87,10 +79,10 @@ export default {
       let fromTop = window.scrollY
 
       mainNavLinks.forEach(link => {
-        let section = document.querySelector(decodeURIComponent(link.hash))
+        let section = document.querySelector(removeWeirdChars(decodeURIComponent(link.hash)))
         let allCurrent = document.querySelectorAll('.current'), i
-
-        if (section.offsetTop <= fromTop) {
+        
+        if (section && section.offsetTop <= fromTop) {
           for (i = 0; i < allCurrent.length; ++i) {
             allCurrent[i].classList.remove('current')
           }
@@ -106,7 +98,29 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', throttle(this.sidebarScroll, 50))
+    var links = document.querySelectorAll("a.sub-topic");
+    links.forEach(l => {
+      let href = decodeURIComponent(l.href);
+      l.href = removeWeirdChars(href); 
+    })
+    
   }
+}
+
+function removeWeirdChars(str){
+  const substitutions = [
+    {weird: 'á', notWeird: 'a'},
+    {weird: 'à', notWeird: 'a'},
+    {weird: 'ã', notWeird: 'a'},
+    {weird: 'ó', notWeird: 'o'},
+    {weird: 'ò', notWeird: 'o'},
+    {weird: 'é', notWeird: 'e'},
+    {weird: 'è', notWeird: 'e'},
+    {weird: 'ç', notWeird: 'c'}
+  ]
+  substitutions.forEach(sb => str = str.split(sb.weird).join(sb.notWeird))
+  console.log(str);
+  return str;
 }
 </script>
 

@@ -28,7 +28,33 @@ export default {
         { key: 'description', name: 'description', content: this.$page.doc.description }
       ]
     }
+  },
+  updated() {
+     var headers = document.querySelectorAll(".main h2");
+    headers.forEach(l => {
+      let id = decodeURIComponent(l.id);
+
+      l.id = removeWeirdChars(id); 
+    })
+
+    console.log('PASSSA AQUII!!!?')
   }
+}
+
+function removeWeirdChars(str){
+  const substitutions = [
+    {weird: 'á', notWeird: 'a'},
+    {weird: 'à', notWeird: 'a'},
+    {weird: 'ã', notWeird: 'a'},
+    {weird: 'ó', notWeird: 'o'},
+    {weird: 'ò', notWeird: 'o'},
+    {weird: 'é', notWeird: 'e'},
+    {weird: 'è', notWeird: 'e'},
+    {weird: 'ç', notWeird: 'c'}
+  ]
+  substitutions.forEach(sb => str = str.split(sb.weird).join(sb.notWeird))
+  console.log(str);
+  return str;
 }
 </script>
 
