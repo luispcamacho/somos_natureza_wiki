@@ -1,16 +1,20 @@
 <template>
-  <!-- <a href="https://github.com/luispcamacho/somos_natureza_wiki" :class="size" title="Git-repository" aria-label="Somos Natureza on Github">
-    <github-icon class="icon" />
+  <a href="https://github.com/luispcamacho/somos_natureza_wiki" :class="size" title="Git-repository" aria-label="Somos Natureza on Github">
+    <font-awesome-icon icon="user-secret" />
     {{text}}
-  </a> -->
+  </a>
 </template>
 
 <script>
 import { GithubIcon } from 'vue-feather-icons'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 export default {
   components: {
-    GithubIcon
+    FontAwesomeIcon
   },
   props: {
     size: {
