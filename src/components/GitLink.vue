@@ -1,6 +1,6 @@
 <template>
   <a href="https://github.com/luispcamacho/somos_natureza_wiki" :class="size" title="Git-repository" aria-label="Somos Natureza on Github">
-    <font-awesome-icon icon="user-secret" />
+    <font-awesome-icon icon="leaf" />
     {{text}}
   </a>
 </template>
