@@ -6,27 +6,20 @@
         <article>
           <h2>
             <g-link to="/enquadramento">
-              <play-icon />
+              <font-awesome-icon :icon="leafIcon" />
               Enquadramento
             </g-link>
           </h2>
         </article>
         <article>
           <h2>
-            <g-link to="/theme-configuration">
-              <sliders-icon />
-              Configuration
+            <g-link to="/faq">
+              <font-awesome-icon :icon="bookIcon" />
+              FAQ
             </g-link>
           </h2>
         </article>
-        <article>
-          <h2>
-            <g-link to="/theme-configuration#changing-colors">
-              <eye-icon />
-              Change colors
-            </g-link>
-          </h2>
-        </article>
+        
       </nav>
     </div>
   </Layout>
@@ -34,22 +27,32 @@
 
 <script>
 import GitLink from '~/components/GitLink.vue'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faLeaf, faBook } from '@fortawesome/free-solid-svg-icons'
 import { PlayIcon, SlidersIcon, EyeIcon } from 'vue-feather-icons'
-
 export default {
   // Make icons avaliable
   components: {
     GitLink,
     PlayIcon,
     SlidersIcon,
-    EyeIcon
+    EyeIcon,
+    FontAwesomeIcon,
+    faLeaf
   },
   metaInfo: {
     title: 'The ultimate static generated documentation theme for the JAM-stack',
     meta: [
       { key: 'description', name: 'description', content: 'A theme for static site documentation based on Gridsome, ready to deploy to Netlify in one click.' }
     ]
+  },
+  data () {
+    return {
+      leafIcon: faLeaf,
+      bookIcon: faBook
+    }
   }
+
 }
 </script>
 
@@ -109,6 +112,10 @@ nav {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    svg {
+      width: 3em !important;
+    }
   }
 }
 

@@ -11,7 +11,7 @@ import { GithubIcon } from 'vue-feather-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
+console.log(FontAwesomeIcon)
 export default {
   components: {
     FontAwesomeIcon
